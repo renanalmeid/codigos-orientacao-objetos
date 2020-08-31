@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class exemploSlide4 {
+
+	public static void main(String[] args) {
+
+		Scanner ler = new Scanner (System.in);
+		
+		int contador = 0;
+		int idade;  
+		int soma = 0;
+		
+				
+		do {
+			System.out.println("Digite um numero positivo para ser somado ou negativo para sair: ");
+			idade = ler.nextInt();
+			if (idade >= 0 ) {
+				soma += idade;
+				contador++;
+			}
+			
+		} while (idade >=0);
+	
+		System.out.println("A soma é: " +soma);
+}
+}
