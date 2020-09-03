@@ -1,0 +1,63 @@
+import java.util.Scanner;
+public class questao3 {
+
+	public static void main(String[] args) {
+	
+		int voto; 
+		int votoHadaad = 0;
+		int votoBolsonaro = 0;
+		int votoNulo = 0;
+		int votoBranco = 0;
+		int numeroVotos = 0;
+		int novaUrna = 1;
+		double percentualHadaad , percentualBolsonaro,  percentualNulo, percentualBranco;
+		
+		Scanner ler = new Scanner (System.in);					// Recebe entrada para voto 	
+		do {
+			do {					
+											 						
+				System.out.println("Digite seu voto:");
+				voto = ler.nextInt();	
+				if (voto == 10 || voto == 11 || voto == 13 || voto ==17 || voto == 0) {
+					System.out.println("Debug");
+					numeroVotos++;
+					if (voto == 10) {
+						votoNulo++;
+					}
+					if(voto == 11){
+						votoBranco++;
+					}
+					if(voto ==13) {
+						votoHadaad++;
+					}
+					if(voto ==17) {
+						votoBolsonaro++;
+					}
+					if (voto == 0) {
+						System.out.println("Urna encerrada. ");
+					}
+						
+				}else {
+					System.out.println("O número digitado é inválido.");
+				}
+
+			}while(voto != 0);
+				 						
+			System.out.println("Deseja contar outra urna? \nDigite qualquer valor para continuar ou 0 (zero) para finalizar.");
+						novaUrna = ler.nextInt();
+
+		}while (novaUrna!=0);
+		
+		percentualHadaad = (double) votoHadaad*100/numeroVotos;
+		percentualBolsonaro = (double) votoBolsonaro*100/numeroVotos;
+		percentualNulo = (double) votoNulo*100/numeroVotos;
+		percentualBranco = (double) votoBranco*100/numeroVotos;
+		
+		System.out.println("O usuário finalizou a contagem de votos.");
+		System.out.println("Quantidade de votos do Hadaad: " + votoHadaad+ " --- Percentual de votos do Hadaad: " +percentualHadaad +"%");
+		System.out.println("Quantidade de votos do Bolsonaro: " + votoBolsonaro+ " --- Percentual de votos do Bolsonaro: " +percentualBolsonaro+"%");
+		System.out.println("Quantidade de votos Nulo: " + votoNulo+ " --- Percentual de votos Nulo: " +percentualNulo+"%");
+		System.out.println("Quantidade de votos Branco: " + votoBranco+ " --- Percentual de votos Branco: " +percentualBranco+"%");
+	}
+
+}
