@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class questao1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner ler = new Scanner (System.in);
+		int numero;
+
+		//System.out.println("Questão 1) Digite um número natural (maior que zero): ");
+
+		do {
+			System.out.println("Questão 1) Digite um número natural (maior que zero): ");
+			numero = ler.nextInt();
+		}while(!(numero>0));
+// LETRA A: Checar se é numero par
+		if (numero % 2 ==0) {
+			System.out.println("a) Número é par.");
+		}else {
+			System.out.println("a) Número é impar.");
+		}
+		
+// LETRA B: Checar se é divisível por 3	
+		if (numero % 3 ==0) {
+			System.out.println("b) Número é divisível por 3.");
+		}else {
+			System.out.println("b) Número não é divisível por 3.");
+		}
+		
+// LETRA C:  Checar se é divisível por 5		
+		if(numero % 5 ==0) {
+			System.out.println("c) Número é divisível por 5.");
+		}else {
+			System.out.println("c) Número não é divisível por 5");
+		}
+		
+// LETRA D:  Checar se é primo 
+		int contador1;
+		int confirmaPrimo;
+		boolean Primo = true;
+		if (numero ==1) {
+			System.out.println("d) Número não é primo.");
+		}else {
+			
+		for(contador1 = 2; contador1 <= numero/2; contador1++) {
+			confirmaPrimo = numero % contador1;
+			if (confirmaPrimo ==0) {
+				Primo = false;
+				break;
+			}
+		}if (Primo) {
+			System.out.println("d) Número é primo.");
+		}else {
+			System.out.println("d) Número não é primo.");
+		}
+		}
+		
+// LETRA E:	Checar se é perfeito 	
+		int contador2;
+		int somaDivisores = 0;
+		for (contador2 = 1; contador2 < numero; contador2++) {
+			if(numero % contador2 ==0) {
+				somaDivisores += contador2;
+			}
+		}
+		if (somaDivisores == numero) {
+			System.out.println("e) Número é perfeito.");
+		}else {
+			System.out.println("e) Número não é perfeito.");
+		}
+	}
+
+}
