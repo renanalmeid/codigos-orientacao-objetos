@@ -1,0 +1,65 @@
+import java.util.Scanner;
+public class questao4 {
+
+	public static void main(String[] args) {
+		
+		int contador = 0, armazenarVogal = 0 ;
+		int guardaA = 0, guardaE = 0;
+		int guardaI = 0; 
+		int guardaO = 0; 
+		int guardaU = 0;
+		int novaFrase = 1; 
+		do {
+			Scanner ler = new Scanner(System.in);
+			System.out.println("Por favor, insira sua frase:");
+			String frase = ler.nextLine	();
+			frase = frase.toLowerCase();
+			if (frase.equals("")) {
+				System.out.println("Frase inválida, digite novamente");
+				Scanner ler1 = new Scanner(System.in);
+				frase = ler1.nextLine	();
+				frase = frase.toLowerCase();
+			}else {
+				for (contador =0; contador < frase.length(); contador++){
+					char vogal = frase.charAt(contador);
+					if(vogal == 'a'|| vogal == 'á'|| vogal == 'à'|| vogal == 'ã'|| vogal == 'ã'){
+						guardaA++;
+						armazenarVogal++;
+					}
+					if(vogal == 'e'|| vogal == 'ê' || vogal == 'é'){
+						guardaE++;
+						armazenarVogal++;
+					}
+					if(vogal == 'i'|| vogal == 'í'){
+						guardaI ++;
+						armazenarVogal++;
+					}
+					if(vogal == 'o'|| vogal == 'ó'|| vogal == 'õ'|| vogal == 'ô'){
+						guardaO++;
+						armazenarVogal++;
+					}
+					if(vogal == 'u'|| vogal == 'ú'){
+						guardaU++;
+						armazenarVogal++;
+					}
+				}
+
+			}
+			System.out.println("A sua frase foi: " +frase);	
+			System.out.println("Total de vogais: " +armazenarVogal);
+			System.out.println("Vogal a: " +guardaA);
+			System.out.println("Vogal e: " +guardaE);
+			System.out.println("Vogal i: " +guardaI);
+			System.out.println("Vogal o: " +guardaO);
+			System.out.println("Vogal u: " +guardaU);
+			System.out.println("O tamanho da frase é de: " +frase.length());
+
+			System.out.println("Deseja digitar outra frase? \nDigite qualquer valor para continuar ou 0 (zero) para finalizar.");	
+			novaFrase = ler.nextInt();
+		}while(novaFrase!=0);
+
+		System.out.println("O usuário finalizou a entrada de frases");
+
+	}
+
+}
