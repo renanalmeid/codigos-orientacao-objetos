@@ -1,0 +1,92 @@
+import java.util.Scanner;
+/*Orientação a Objetos
+Missão 1 - Introdução a Java 
+
+Aluno: Renan Almeida de Souza
+Matrícula: 150021143 
+
+Questão 2*/
+
+public class questao2 {
+
+	public static void main(String[] args) {
+		int quantidade;   			// Variavel de entrevistados
+
+		int contador1 = 0;			// Contador para entrade de idade
+		int idade;					// Variável idade
+		int idadeSoma = 0;			// Variável armazena idade 
+		double mediaIdade;			// Variável para média de idade 
+
+		int contador2 = 0;			// Contador para entrade de indice
+		int satisfacao;				// Variável indice
+		int indice5 = 0;			// Variavel armazenar indice 5
+		int indice10 =0;			// Variavel armazenar indice 10
+		int indice7menor =0;		// Variavel armazenar indice abaixo de 7
+		int satisfacaoSoma = 0;		// Variável armazena indice 
+		double mediaSatisfacao; 	// Variável para média de indice  
+		double percentual5;			// Variável para percentual de indice 5
+		double percentual10;		// Variável para percentual de indice 10
+		double percentual7menor;	// Variável para percentual de indice abaixo de 7
+
+// ------------------------------ SEÇÃO PARA QUANTIDADE DE ENTREVISTADOS-------------------------------------		
+		do {																		// Recebe entrada natural para entrevistados
+			Scanner ler = new Scanner (System.in);									
+			System.out.println("Questão 2) Quantas pessoas foram entrevistadas?");
+			quantidade = ler.nextInt();												
+		}while(!(quantidade>0));													// Repete caso entrada seja inválida (menor que 0)
+
+// ------------------------------ SEÇÃO PARA QUANTIDADE DE IDADE DOS ENTREVISTADOS-------------------------------------			
+		do {																		 // Recebe entrada para idade de entrevistados
+			Scanner ler1 = new Scanner (System.in);									 
+			System.out.println("Indique a idade da pessoa:  " +(contador1+1)+" \n");
+			idade  = ler1.nextInt();	
+			if (idade > 0 && idade < 110) {											// Avalia se a idade está entre 1 e 109
+
+				idadeSoma += idade;													// Armazena a idade 
+				contador1++; 														// Armazena contador para cálculo de média
+			}else {
+				System.out.println("Valor para idade inválido.");					// Avisa usuario de erro na entrada 
+			}
+
+		} while (contador1 < quantidade);											// Lê respectivas idades dos entrevistados
+		mediaIdade = (double) idadeSoma/contador1;									// Calcula média de idades (valor double)
+
+// ------------------------------ SEÇÃO PARA INDICE DE SATISFAÇÃO DOS ENTREVISTADOS-------------------------------------	
+		do {																		// Recebe entrada natural para entrevistados
+			Scanner ler2 = new Scanner (System.in);	
+			System.out.println("Indique o indice de satisfacao do entrevistado(entre 5 e 10): " +(contador2+1)+" \n");
+			satisfacao = ler2.nextInt();
+			if(satisfacao > 4 && satisfacao < 11 ) {                               // Avalia se votos estão entre 5 e 10
+
+				satisfacaoSoma += satisfacao;									   // Armazena a satisfação 
+				contador2++;												   // Armazena contador para cálculo de média
+				if(satisfacao ==5) {											   // Armazena contador caso indice 5
+					indice5 ++;
+				}
+				if(satisfacao == 10) {											   // Armazena contador caso indice 10
+					indice10++;
+				}
+				if (satisfacao < 7) {											   // Armazena contador caso indice menor que 7
+					indice7menor++;
+				}
+			}else {
+				System.out.println("Valor para indice inválido.");                 // Avisa usuario de erro na entrada 
+			}
+
+		} while (contador2 < quantidade);										  // Lê respectivos indice dos entrevistados
+		mediaSatisfacao = (double) satisfacaoSoma/contador2;					 // Calcula média de idades (valor double)
+		percentual5 = (double) indice5*100/quantidade;							 // Calcula percentual indices 5 (valor double)
+		percentual10 = (double) indice10*100/quantidade;						 // Calcula percentual indices 10 (valor double)
+		percentual7menor = (double) indice7menor*100/quantidade;				 // Calcula percentual indices menores que 7 (valor double)
+
+// ------------------------------ SEÇÃO PARA INFORMAÇÕES  DA PESQUISA -------------------------------------	
+		System.out.println("O número de entrevistados é de: " +quantidade);
+		System.out.println("A média das idades dos entrevistados é: " +mediaIdade);
+		System.out.println("A média do índice de satisfação dos entrevistados é: " +mediaSatisfacao);
+		System.out.println("Número de satisfação 5: " +indice5 + " --- Percentual de satisfação 5: " +percentual5+"%");
+		System.out.println("Número de satisfação 10: " +indice10 + " --- Percentual de satisfação 10: " +percentual10+"%");
+		System.out.println("Percentual de satisfação abaixo de 7 " +percentual7menor +"%");
+
+	}
+
+}
